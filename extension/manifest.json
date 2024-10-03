@@ -1,0 +1,26 @@
+// Metadata for the Chrome extension
+{
+     "manifest_version": 3,
+     "name": "WhatsApp Translation",
+     "description": "Translate WhatsApp chats into preferred language and send translated messages",
+     "version": "1.0",
+     "permissions": [
+       "storage", 
+       "activeTab", 
+       "scripting"
+     ],
+     "action": {
+       "default_popup": "public/index.html",
+       "default_title": "Translate WhatsApp"
+     },
+     "content_scripts": [
+       {
+         "matches": ["https://web.whatsapp.com/*"],
+         "js": ["src/content.js"]
+       }
+     ],
+     "background": {
+       "service_worker": "src/background.js"
+     }
+   }
+   
